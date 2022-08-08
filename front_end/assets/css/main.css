@@ -1,0 +1,145 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.form-content {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("../img/bg-01.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-content {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: white;
+    width: 500px;
+    padding: 0px 40px;
+    position: relative;
+    border-radius: 12px;
+}
+
+.login-title {
+    display: block;
+    color: black;
+    font-weight: bolder;
+    font-size: 4rem;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.input-content {
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 16px;
+
+}
+
+.input-label {
+    display: block;
+    font-size: 1.6rem;
+    color: black;
+    line-height: 1.5;
+    margin-bottom: 6px;
+}
+
+.required-label::after {
+    position: relative;
+    content: '*';
+    color: red;
+    font-size: 1.6rem;
+}
+
+.input-line {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.input-form {
+    display: inline-block;
+    font-size: 1.6rem;
+    color: #333;
+    line-height: 1.2;
+    width: 100%;
+    border: none;
+}
+
+.input-form:focus {
+    outline: none;
+}
+
+.input-icon {
+    color: #ccc;
+    font-size: 1.4rem;
+    margin: 8px;
+}
+
+.forgot-password {
+    display: block;
+    width: 100%;
+    text-align: right;
+}
+
+.forgot-password-link {
+    text-decoration: underline;
+    color: #333;
+    font-size: 1.4rem;
+}
+
+.submit-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px auto;
+}
+
+.submit-form-btn {
+    text-transform: uppercase;
+    width: 100%;
+    display: block;
+    position: relative;
+    border-radius: 24px;
+    color: white;
+    background: #2bbcff;
+    padding: 10px;
+    font-size: 1.8rem;
+    border: none;
+}
+
+.submit-form-btn:hover {
+    background: #69cefd;
+    cursor: pointer;
+}
+
+.signup-option {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content-label {
+    font-size: 1.2rem;
+}
+
+.signup-link {
+    text-decoration: underline;
+    color: black;
+    font-size: 1.2rem;
+}
