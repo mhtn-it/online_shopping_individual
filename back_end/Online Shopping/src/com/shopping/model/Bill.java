@@ -2,64 +2,96 @@ package com.shopping.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Bill")
 public class Bill {
+	@Id
+	@Column
 	private Long id;
+	@Column
 	private String name;
+	@Column
 	private Long id_user;
+	@Column
 	private String address;
+	@Column
 	private String phoneNumber;
+	@Column
 	private Long total;
+	@Column
 	private Date date;
+	@Column
 	private Integer status;
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public Long getId_user() {
 		return id_user;
 	}
+
 	public void setId_user(Long id_user) {
 		this.id_user = id_user;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
+
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
 	public Long getTotal() {
 		return total;
 	}
+
 	public void setTotal(Long total) {
 		this.total = total;
 	}
+
 	public Date getDate() {
 		return date;
 	}
+
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
 	public Integer getStatus() {
 		return status;
 	}
+
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
-	
+
 	public Bill(Long id, String name, Long id_user, String address, String phoneNumber, Long total, Date date,
 			Integer status) {
 		this.id = id;
