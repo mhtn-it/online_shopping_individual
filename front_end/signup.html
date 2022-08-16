@@ -8,53 +8,7 @@
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <title>Login</title>
-
-    <script>
-        function usernameValidation() {
-            var input = document.data.username;
-            input.parentElement.parentElement.style.borderBottomColor = '#ff5252';
-            input.setCustomValidity('Please enter username here.');
-        }
-
-        function passwordValidation() {
-            var input = document.data.password;
-            input.parentElement.parentElement.style.borderBottomColor = '#ff5252';
-            if (input.value == "") {
-                input.setCustomValidity('Please enter password here.')
-            }
-            else {
-                input.setCustomValidity('Please enter a password between 6-20 characters in length (no spaces).')
-            }
-        }
-
-        function emailValidation() {
-            var input = document.data.email;
-            input.parentElement.parentElement.style.borderBottomColor = '#ff5252';
-            if (input.value == "") {
-                input.setCustomValidity('Please enter email here.')
-            }
-            else {
-                input.setCustomValidity('Please enter a correct email here.')
-            }
-        }
-
-        function phoneNumberValidation() {
-            var input = document.data.phone_number;
-            input.parentElement.parentElement.style.borderBottomColor = '#ff5252';
-            if (input.value == "") {
-                input.setCustomValidity('Please enter email here.')
-            }
-            else {
-                input.setCustomValidity('Please enter a correct email here.')
-            }
-        }
-
-        function addressValidation() {
-            var input = document.data.address;
-            input.parentElement.parentElement.style.borderBottomColor = '#ff5252';
-            input.setCustomValidity('Please enter username here.');
-        }
-    </script>
+    <script src="./assets/scripts/main.js"></script>
 </head>
 
 <body>
@@ -64,6 +18,7 @@
             <span class="login-title">
                 Sign Up
             </span>
+            <div id="validation-list" style="display: none"> </div>
             <form action="#" name="data">
                 <div class="input-content">
                     <span class="input-label required-label">
@@ -71,8 +26,7 @@
                     </span>
                     <div class="input-line">
                         <i class="input-icon far fa-user"></i>
-                        <input class="input-form" type="text" placeholder="Type your username" name="username" required
-                            oninvalid="usernameValidation()" oninput="this.setCustomValidity('')">
+                        <input class="input-form" type="text" placeholder="Type your username" name="username">
                     </div>
                 </div>
                 <div class="input-content">
@@ -81,9 +35,7 @@
                     </span>
                     <div class="input-line">
                         <i class="input-icon fas fa-lock"></i>
-                        <input class="input-form" type="password" placeholder="Type your password" name="password"
-                            pattern="\S{6,20}" required oninvalid="passwordValidation()"
-                            oninput="this.setCustomValidity('')">
+                        <input class="input-form" type="password" placeholder="Type your password" name="password">
                     </div>
                 </div>
 
@@ -93,8 +45,7 @@
                     </span>
                     <div class="input-line">
                         <i class="input-icon far fa-envelope"></i>
-                        <input class="input-form" type="email" placeholder="Type your email" name="email" required
-                            oninvalid="emailValidation()" oninput="this.setCustomValidity('')">
+                        <input class="input-form" type="email" placeholder="Type your email" name="email">
                     </div>
                 </div>
 
@@ -104,9 +55,7 @@
                     </span>
                     <div class="input-line">
                         <i class="input-icon fas fa-mobile"></i>
-                        <input class="input-form" type="text" placeholder="Type your phone number" name="phone_number"
-                            required pattern="0[0-9]{9}" oninvalid="phoneNumberValidation()"
-                            oninput="this.setCustomValidity('')">
+                        <input class="input-form" type="text" placeholder="Type your phone number" name="phone_number">
                     </div>
                 </div>
 
@@ -116,13 +65,12 @@
                     </span>
                     <div class="input-line">
                         <i class="input-icon far fa-map"></i>
-                        <input class="input-form" type="text" placeholder="Type your address" name="address" required
-                            oninvalid="addressValidation()" oninput="this.setCustomValidity('')">
+                        <input class="input-form" type="text" placeholder="Type your address" name="address">
                     </div>
                 </div>
 
                 <div class="submit-form">
-                    <input class="submit-form-btn" type="submit" value="Sign Up">
+                    <input class="submit-form-btn" type="submit" value="Sign Up" onclick="signupValidate()">
                 </div>
                 <div class="signup-option">
                     <span class="content-label">Already have an account?</span>
