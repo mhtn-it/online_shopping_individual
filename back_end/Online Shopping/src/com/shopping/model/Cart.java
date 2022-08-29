@@ -5,7 +5,7 @@ import java.util.Date;
 public class Cart {
 	private Long id;
 	private Date date;
-	private Long id_user;
+	private Long idUser;
 	private Integer count;
 	public Long getId() {
 		return id;
@@ -19,11 +19,11 @@ public class Cart {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Long getId_user() {
-		return id_user;
+	public Long getIdUser() {
+		return idUser;
 	}
-	public void setId_user(Long id_user) {
-		this.id_user = id_user;
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
 	}
 	public Integer getCount() {
 		return count;
@@ -31,10 +31,10 @@ public class Cart {
 	public void setCount(Integer count) {
 		this.count = count;
 	}
-	public Cart(Long id, Date date, Long id_user, Integer count) {
+	public Cart(Long id, Date date, Long idUser, Integer count) {
 		this.id = id;
 		this.date = date;
-		this.id_user = id_user;
+		this.idUser = idUser;
 		this.count = count;
 	}
 	

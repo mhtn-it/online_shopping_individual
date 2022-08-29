@@ -52,10 +52,10 @@ public class ItemBillDAO {
 		return itemBillList;
 	}
 
-	public List<ItemBill> getItemBillByIdBill(String id_bill) {
+	public List<ItemBill> getItemBillByIdBill(String idBill) {
 		List<ItemBill> itemBillList = new ArrayList<ItemBill>();
 
-		String query = "SELECT * FROM \"item_bill\" where id_bill = " + id_bill;
+		String query = "SELECT * FROM \"item_bill\" where idBill = " + idBill;
 		Statement statement = null;
 		try {
 			statement = connection.createStatement();
@@ -79,7 +79,7 @@ public class ItemBillDAO {
 	}
 
 	public void insertItemBill(ItemBill itemBill) {
-		String query = "INSERT INTO \"item_bill\"(id, name , id_item , id_bill) VALUES(?,?,?,?)";
+		String query = "INSERT INTO \"item_bill\"(id, name , idItem , idBill) VALUES(?,?,?,?)";
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = connection.prepareStatement(query);
@@ -90,8 +90,8 @@ public class ItemBillDAO {
 		try {
 			preparedStatement.setLong(1, itemBill.getId());
 			preparedStatement.setString(2, itemBill.getName());
-			preparedStatement.setLong(3, itemBill.getId_item());
-			preparedStatement.setLong(4, itemBill.getId_bill());
+			preparedStatement.setLong(3, itemBill.getIdItem());
+			preparedStatement.setLong(4, itemBill.getIdBill());
 			
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -101,7 +101,7 @@ public class ItemBillDAO {
 	}
 
 	public void updateItemBill(ItemBill itemBill) {
-		String query = "UPDATE \"item_bill\" SET id = ?, name = ?, id_item = ?, id_bill = ? WHERE id = ?";
+		String query = "UPDATE \"item_bill\" SET id = ?, name = ?, idItem = ?, idBill = ? WHERE id = ?";
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = connection.prepareStatement(query);
@@ -112,8 +112,8 @@ public class ItemBillDAO {
 		try {
 			preparedStatement.setLong(1, itemBill.getId());
 			preparedStatement.setString(2, itemBill.getName());
-			preparedStatement.setLong(3, itemBill.getId_item());
-			preparedStatement.setLong(4, itemBill.getId_bill());
+			preparedStatement.setLong(3, itemBill.getIdItem());
+			preparedStatement.setLong(4, itemBill.getIdBill());
 			preparedStatement.setLong(5, itemBill.getId());
 			
 			preparedStatement.executeUpdate();

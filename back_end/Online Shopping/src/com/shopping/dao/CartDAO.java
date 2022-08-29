@@ -31,11 +31,11 @@ public class CartDAO {
 
 	public void insertCart(Cart cart) throws ClassNotFoundException, SQLException {
 		Connection conn = DBConnection.getConnection();
-		String query = "INSERT INTO \"cart\"(id, date, id_user, count) VALUES(?,?,?,?)";
+		String query = "INSERT INTO \"cart\"(id, date, idUser, count) VALUES(?,?,?,?)";
 		PreparedStatement ps = conn.prepareStatement(query);
 		ps.setLong(1, cart.getId());
 		ps.setDate(2, (Date) cart.getDate());
-		ps.setLong(3, cart.getId_user());
+		ps.setLong(3, cart.getIdUser());
 		ps.setInt(4, cart.getCount());
 		
 		ps.executeUpdate();
@@ -43,11 +43,11 @@ public class CartDAO {
 
 	public void updateCart(Cart cart) throws ClassNotFoundException, SQLException {
 		Connection conn = DBConnection.getConnection();
-		String query = "UPDATE \"cart\" SET id = ?, date = ?, id_user = ?, count = ? WHERE id = ?";
+		String query = "UPDATE \"cart\" SET id = ?, date = ?, idUser = ?, count = ? WHERE id = ?";
 		PreparedStatement ps = conn.prepareStatement(query);
 		ps.setLong(1, cart.getId());
 		ps.setDate(2, (Date) cart.getDate());
-		ps.setLong(3, cart.getId_user());
+		ps.setLong(3, cart.getIdUser());
 		ps.setInt(4, cart.getCount());
 		ps.setLong(5, cart.getId());
 		

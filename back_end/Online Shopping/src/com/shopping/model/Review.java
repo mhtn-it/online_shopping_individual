@@ -8,17 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Review")
+@Table(name = "review")
 public class Review {
 	@Id
 	@Column
 	private Long id;
 	@Column
-	private Long id_user;
+	private Long idUser;
 	@Column
 	private Date date;
 	@Column
-	private Long id_item;
+	private Long idItem;
 	@Column
 	private String content;
 
@@ -30,12 +30,12 @@ public class Review {
 		this.id = id;
 	}
 
-	public Long getId_user() {
-		return id_user;
+	public Long getIdUser() {
+		return idUser;
 	}
 
-	public void setId_user(Long id_user) {
-		this.id_user = id_user;
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
 	}
 
 	public Date getDate() {
@@ -46,12 +46,12 @@ public class Review {
 		this.date = date;
 	}
 
-	public Long getId_item() {
-		return id_item;
+	public Long getIdItem() {
+		return idItem;
 	}
 
-	public void setId_item(Long id_item) {
-		this.id_item = id_item;
+	public void setIdItem(Long idItem) {
+		this.idItem = idItem;
 	}
 
 	public String getContent() {
@@ -62,11 +62,11 @@ public class Review {
 		this.content = content;
 	}
 
-	public Review(Long id, Long id_user, Date date, Long id_item, String content) {
+	public Review(Long id, Long idUser, Date date, Long idItem, String content) {
 		this.id = id;
-		this.id_user = id_user;
+		this.idUser = idUser;
 		this.date = date;
-		this.id_item = id_item;
+		this.idItem = idItem;
 		this.content = content;
 	}
 

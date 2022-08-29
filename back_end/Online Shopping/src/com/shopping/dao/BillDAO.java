@@ -92,10 +92,10 @@ public class BillDAO {
 		return bill;
 	}
 	
-	public List<Bill> getBillByIdUser(String id_user){
+	public List<Bill> getBillByIdUser(String idUser){
 		List<Bill> billList = new ArrayList<Bill>();
 
-		String query = "SELECT * FROM \"bill\" where id_user = " + id_user;
+		String query = "SELECT * FROM \"bill\" where idUser = " + idUser;
 		Statement statement = null;
 		try {
 			statement = connection.createStatement();
@@ -126,7 +126,7 @@ public class BillDAO {
 	}
 
 	public void insertBill(Bill bill){
-		String query = "INSERT INTO \"bill\"(id, name, id_user, address , phoneNumber , total , date , status) VALUES(?,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO \"bill\"(id, name, idUser, address , phoneNumber , total , date , status) VALUES(?,?,?,?,?,?,?,?)";
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = connection.prepareStatement(query);
@@ -137,7 +137,7 @@ public class BillDAO {
 		try {
 			preparedStatement.setLong(1, bill.getId());
 			preparedStatement.setString(2, bill.getName());
-			preparedStatement.setLong(3, bill.getId_user());
+			preparedStatement.setLong(3, bill.getIdUser());
 			preparedStatement.setString(4, bill.getAddress());
 			preparedStatement.setString(5, bill.getPhoneNumber());
 			preparedStatement.setLong(6, bill.getTotal());
@@ -152,7 +152,7 @@ public class BillDAO {
 	}
 
 	public void updateBill(Bill bill){
-		String query = "UPDATE \"bill\" SET id = ?, name = ?, id_user = ?, address = ?, phoneNumber = ?, total = ?, date = ?, status = ? WHERE id = ?";
+		String query = "UPDATE \"bill\" SET id = ?, name = ?, idUser = ?, address = ?, phoneNumber = ?, total = ?, date = ?, status = ? WHERE id = ?";
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = connection.prepareStatement(query);
@@ -163,7 +163,7 @@ public class BillDAO {
 		try {
 			preparedStatement.setLong(1, bill.getId());
 			preparedStatement.setString(2, bill.getName());
-			preparedStatement.setLong(3, bill.getId_user());
+			preparedStatement.setLong(3, bill.getIdUser());
 			preparedStatement.setString(4, bill.getAddress());
 			preparedStatement.setString(5, bill.getPhoneNumber());
 			preparedStatement.setLong(6, bill.getTotal());

@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ItemBill")
+@Table(name = "itemBill")
 public class ItemBill {
 	@Id
 	@Column
@@ -14,9 +14,9 @@ public class ItemBill {
 	@Column
 	private String name;
 	@Column
-	private Long id_item;
+	private Long idItem;
 	@Column
-	private long id_bill;
+	private Long idBill;
 
 	public Long getId() {
 		return id;
@@ -34,27 +34,27 @@ public class ItemBill {
 		this.name = name;
 	}
 
-	public Long getId_item() {
-		return id_item;
+	public Long getIdItem() {
+		return idItem;
 	}
 
-	public void setId_item(Long id_item) {
-		this.id_item = id_item;
+	public void setIdItem(Long idItem) {
+		this.idItem = idItem;
 	}
 
-	public long getId_bill() {
-		return id_bill;
+	public long getIdBill() {
+		return idBill;
 	}
 
-	public void setId_bill(long id_bill) {
-		this.id_bill = id_bill;
+	public void setIdBill(long idBill) {
+		this.idBill = idBill;
 	}
 
-	public ItemBill(Long id, String name, Long id_item, long id_bill) {
+	public ItemBill(Long id, String name, Long idItem, long idBill) {
 		this.id = id;
 		this.name = name;
-		this.id_item = id_item;
-		this.id_bill = id_bill;
+		this.idItem = idItem;
+		this.idBill = idBill;
 	}
 
 }

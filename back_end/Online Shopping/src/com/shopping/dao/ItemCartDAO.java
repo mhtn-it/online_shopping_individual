@@ -30,24 +30,24 @@ public class ItemCartDAO {
 
 	public void insertItemCart(ItemCart itemCart) throws ClassNotFoundException, SQLException {
 		Connection conn = DBConnection.getConnection();
-		String query = "INSERT INTO \"item_cart\"(id, name , id_item , id_cart) VALUES(?,?,?,?)";
+		String query = "INSERT INTO \"item_cart\"(id, name , idItem , idCart) VALUES(?,?,?,?)";
 		PreparedStatement ps = conn.prepareStatement(query);
 		ps.setLong(1, itemCart.getId());
 		ps.setString(2, itemCart.getName());
-		ps.setLong(3, itemCart.getId_item());
-		ps.setLong(4, itemCart.getId_cart());
+		ps.setLong(3, itemCart.getIdItem());
+		ps.setLong(4, itemCart.getIdCart());
 
 		ps.executeUpdate();
 	}
 
 	public void updateItemCart(ItemCart itemCart) throws ClassNotFoundException, SQLException {
 		Connection conn = DBConnection.getConnection();
-		String query = "UPDATE \"item_cart\" SET id = ?, name = ?, id_item = ?, id_cart = ? WHERE id = ?";
+		String query = "UPDATE \"item_cart\" SET id = ?, name = ?, idItem = ?, idCart = ? WHERE id = ?";
 		PreparedStatement ps = conn.prepareStatement(query);
 		ps.setLong(1, itemCart.getId());
 		ps.setString(2, itemCart.getName());
-		ps.setLong(3, itemCart.getId_item());
-		ps.setLong(4, itemCart.getId_cart());
+		ps.setLong(3, itemCart.getIdItem());
+		ps.setLong(4, itemCart.getIdCart());
 		ps.setLong(5, itemCart.getId());
 
 		ps.executeUpdate();

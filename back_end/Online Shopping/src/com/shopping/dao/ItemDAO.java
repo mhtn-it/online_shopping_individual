@@ -32,7 +32,7 @@ public class ItemDAO {
 
 	public void insertItem(Item item) throws ClassNotFoundException, SQLException {
 		Connection conn = DBConnection.getConnection();
-		String query = "INSERT INTO \"item\"(id, name , price , saled , describe , img , releaseDate ,id_category ,id_producer ,id_shop) VALUES(?,?,?,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO \"item\"(id, name , price , saled , describe , img , releaseDate ,idCategory ,idProducer ,idShop) VALUES(?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = conn.prepareStatement(query);
 		ps.setLong(1, item.getId());
 		ps.setString(2, item.getName());
@@ -41,16 +41,16 @@ public class ItemDAO {
 		ps.setString(5, item.getDescribe());
 		ps.setString(6, item.getImg());
 		ps.setDate(7, (Date) item.getReleaseDate());
-		ps.setLong(8, item.getId_category());
-		ps.setLong(9, item.getId_producer());
-		ps.setLong(10, item.getId_shop());
+		ps.setLong(8, item.getIdCategory());
+		ps.setLong(9, item.getIdProducer());
+		ps.setLong(10, item.getIdShop());
 
 		ps.executeUpdate();
 	}
 
 	public void updateItem(Item item) throws ClassNotFoundException, SQLException {
 		Connection conn = DBConnection.getConnection();
-		String query = "UPDATE \"item\" SET id = ?, name = ?, price = ?, saled = ?, describe = ?, img = ?, releaseDate = ?,id_category = ?,id_producer = ?,id_shop = ? WHERE id = ?";
+		String query = "UPDATE \"item\" SET id = ?, name = ?, price = ?, saled = ?, describe = ?, img = ?, releaseDate = ?,idCategory = ?,idProducer = ?,idShop = ? WHERE id = ?";
 		PreparedStatement ps = conn.prepareStatement(query);
 		ps.setLong(1, item.getId());
 		ps.setString(2, item.getName());
@@ -59,9 +59,9 @@ public class ItemDAO {
 		ps.setString(5, item.getDescribe());
 		ps.setString(6, item.getImg());
 		ps.setDate(7, (Date) item.getReleaseDate());
-		ps.setLong(8, item.getId_category());
-		ps.setLong(9, item.getId_producer());
-		ps.setLong(10, item.getId_shop());
+		ps.setLong(8, item.getIdCategory());
+		ps.setLong(9, item.getIdProducer());
+		ps.setLong(10, item.getIdShop());
 		ps.setLong(11, item.getId());
 
 		ps.executeUpdate();

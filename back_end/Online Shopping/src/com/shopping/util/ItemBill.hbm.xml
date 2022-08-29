@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!--FILL YOUR CODE -->
+	<class name="ItemBill" table="itemBill">
+		<id name="id" type="long" column="id">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="name" type="string" column="name"></property>
+		<property name="idItem" type="long" column="idItem"></property>
+		<property name="idBill" type="long" column="idBill"></property>
+	</class>
+</hibernate-mapping>

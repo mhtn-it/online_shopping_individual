@@ -5,10 +5,15 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+@NamedQueries({ @NamedQuery(name = "getSum", query = "select sum(total) from Bill"),
+		@NamedQuery(name = "getSumOfUser", query = "select sum(total) from Employee where idUser=:idUser") })
+
 @Entity
-@Table(name = "Bill")
+@Table(name = "bill")
 public class Bill {
 	@Id
 	@Column
@@ -16,7 +21,7 @@ public class Bill {
 	@Column
 	private String name;
 	@Column
-	private Long id_user;
+	private Long idUser;
 	@Column
 	private String address;
 	@Column
@@ -44,12 +49,12 @@ public class Bill {
 		this.name = name;
 	}
 
-	public Long getId_user() {
-		return id_user;
+	public Long getIdUser() {
+		return idUser;
 	}
 
-	public void setId_user(Long id_user) {
-		this.id_user = id_user;
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
 	}
 
 	public String getAddress() {
@@ -92,11 +97,11 @@ public class Bill {
 		this.status = status;
 	}
 
-	public Bill(Long id, String name, Long id_user, String address, String phoneNumber, Long total, Date date,
+	public Bill(Long id, String name, Long idUser, String address, String phoneNumber, Long total, Date date,
 			Integer status) {
 		this.id = id;
 		this.name = name;
-		this.id_user = id_user;
+		this.idUser = idUser;
 		this.address = address;
 		this.phoneNumber = phoneNumber;
 		this.total = total;

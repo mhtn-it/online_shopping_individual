@@ -3,8 +3,8 @@ package com.shopping.model;
 public class ItemCart {
 	private Long id;
 	private String name;
-	private Long id_item;
-	private Long id_cart;
+	private Long idItem;
+	private Long idCart;
 	public Long getId() {
 		return id;
 	}
@@ -17,24 +17,24 @@ public class ItemCart {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Long getId_item() {
-		return id_item;
+	public Long getIdItem() {
+		return idItem;
 	}
-	public void setId_item(Long id_item) {
-		this.id_item = id_item;
+	public void setIdItem(Long idItem) {
+		this.idItem = idItem;
 	}
-	public Long getId_cart() {
-		return id_cart;
+	public Long getIdCart() {
+		return idCart;
 	}
-	public void setId_cart(Long id_cart) {
-		this.id_cart = id_cart;
+	public void setIdCart(Long idCart) {
+		this.idCart = idCart;
 	}
 	
-	public ItemCart(Long id, String name, Long id_item, Long id_cart) {
+	public ItemCart(Long id, String name, Long idItem, Long idCart) {
 		this.id = id;
 		this.name = name;
-		this.id_item = id_item;
-		this.id_cart = id_cart;
+		this.idItem = idItem;
+		this.idCart = idCart;
 	}
 	
 	

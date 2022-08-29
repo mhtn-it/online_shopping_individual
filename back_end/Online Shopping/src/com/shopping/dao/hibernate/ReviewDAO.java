@@ -3,6 +3,7 @@ package com.shopping.dao.hibernate;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -16,6 +17,7 @@ import com.shopping.util.HibernateUtil;
 
 public class ReviewDAO {
 	SessionFactory sessionFactory;
+	Criteria criteria = null;
 
 	public ReviewDAO() {
 		sessionFactory = HibernateUtil.getSessionFactory();
@@ -23,58 +25,88 @@ public class ReviewDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<Review> list() {
-		Session session = sessionFactory.openSession();
-		Criteria cr = session.createCriteria(Review.class);
-		cr.addOrder(Order.asc("id"));
-		return cr.list();
+		try {
+			Session session = sessionFactory.openSession();
+			criteria = session.createCriteria(Review.class);
+			criteria.addOrder(Order.asc("id"));
+		} catch (HibernateException e) {
+			System.out.println(e.toString());
+		}
+		return criteria.list();
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public List<Review> listReviewByIdUser(Long id_user) {
-		Session session = sessionFactory.openSession();
-		Criteria cr = session.createCriteria(Review.class);
-		cr.add(Restrictions.eq("id_user", id_user));
-		cr.addOrder(Order.asc("id"));
-		return cr.list();
+	public List<Review> listReviewByIdUser(Long idUser) {
+		try {
+			Session session = sessionFactory.openSession();
+			criteria = session.createCriteria(Review.class);
+			criteria.add(Restrictions.eq("idUser", idUser));
+			criteria.addOrder(Order.asc("id"));
+		} catch (HibernateException e) {
+			System.out.println(e.toString());
+		}
+		return criteria.list();
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public List<Review> listReviewByIdItem(Long id_item) {
-		Session session = sessionFactory.openSession();
-		Criteria cr = session.createCriteria(Review.class);
-		cr.add(Restrictions.eq("id_item", id_item));
-		cr.addOrder(Order.asc("id"));
-		return cr.list();
+	public List<Review> listReviewByIdItem(Long idItem) {
+		try {
+			Session session = sessionFactory.openSession();
+			Criteria criteria = session.createCriteria(Review.class);
+			criteria.add(Restrictions.eq("idItem", idItem));
+			criteria.addOrder(Order.asc("id"));
+		} catch (HibernateException e) {
+			System.out.println(e.toString());
+		}
+		return criteria.list();
 	}
 
 	public void insertReview(Review review) {
-		Session session = sessionFactory.openSession();
-		Transaction transaction = session.beginTransaction();
-		session.save(review);
-		transaction.commit();
-		session.close();
+		try {
+			Session session = sessionFactory.openSession();
+			Transaction transaction = session.beginTransaction();
+			session.save(review);
+			transaction.commit();
+			session.close();
+		} catch (HibernateException e) {
+			System.out.println(e.toString());
+		}
+
 	}
-	
+
 	public Review findReview(Long id) {
-		Session session = sessionFactory.openSession();
-		Review review = (Review) session.get(Review.class, id);
-		session.close();
+		Review review = null;
+		try {
+			Session session = sessionFactory.openSession();
+			review = (Review) session.get(Review.class, id);
+			session.close();
+		} catch (HibernateException e) {
+			System.out.println(e.toString());
+		}
 		return review;
 	}
-	
+
 	public void updateReview(Review review) {
-		Session session = sessionFactory.openSession();
-		Transaction transaction = session.beginTransaction();
-		session.update(review);
-		transaction.commit();
-		session.close();
+		try {
+			Session session = sessionFactory.openSession();
+			Transaction transaction = session.beginTransaction();
+			session.update(review);
+			transaction.commit();
+			session.close();
+		} catch (HibernateException e) {
+			System.out.println(e.toString());
+		}
 	}
 
 	public void deleteReview(Review review) {
-		Session session = sessionFactory.openSession();
-		Transaction transaction = session.beginTransaction();
-		session.delete(review);
-		transaction.commit();
-		session.close();
+		try {
+			Session session = sessionFactory.openSession();
+			Transaction transaction = session.beginTransaction();
+			session.delete(review);
+			transaction.commit();
+			session.close();
+		} catch (HibernateException e) {
+			System.out.println(e.toString());
+		}
 	}
 }

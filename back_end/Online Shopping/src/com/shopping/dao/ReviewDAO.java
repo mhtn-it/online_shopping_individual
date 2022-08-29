@@ -60,7 +60,7 @@ public class ReviewDAO {
 	}
 
 	public void insertReview(Review review){
-		String query = "INSERT INTO \"review\"(id, id_user , date , id_item , content) VALUES(?,?,?,?,?)";
+		String query = "INSERT INTO \"review\"(id, idUser , date , idItem , content) VALUES(?,?,?,?,?)";
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = connection.prepareStatement(query);
@@ -70,9 +70,9 @@ public class ReviewDAO {
 		}
 		try {
 			preparedStatement.setLong(1, review.getId());
-			preparedStatement.setLong(2, review.getId_user());
+			preparedStatement.setLong(2, review.getIdUser());
 			preparedStatement.setDate(3, (Date) review.getDate());
-			preparedStatement.setLong(4, review.getId_item());
+			preparedStatement.setLong(4, review.getIdItem());
 			preparedStatement.setString(5, review.getContent());
 			
 			preparedStatement.executeUpdate();
@@ -83,7 +83,7 @@ public class ReviewDAO {
 	}
 
 	public void updateReview(Review review){
-		String query = "UPDATE \"review\" SET id = ?, id_user = ?, date = ?, id_item = ?, content = ? WHERE id = ?";
+		String query = "UPDATE \"review\" SET id = ?, idUser = ?, date = ?, idItem = ?, content = ? WHERE id = ?";
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = connection.prepareStatement(query);
@@ -93,9 +93,9 @@ public class ReviewDAO {
 		}
 		try {
 			preparedStatement.setLong(1, review.getId());
-			preparedStatement.setLong(2, review.getId_user());
+			preparedStatement.setLong(2, review.getIdUser());
 			preparedStatement.setDate(3, (Date) review.getDate());
-			preparedStatement.setLong(4, review.getId_item());
+			preparedStatement.setLong(4, review.getIdItem());
 			preparedStatement.setString(5, review.getContent());
 			preparedStatement.setLong(6, review.getId());
 			
@@ -160,10 +160,10 @@ public class ReviewDAO {
 		return review;
 	}
 
-	public List<Review> getReviewByIdUser(String id_user){
+	public List<Review> getReviewByIdUser(String idUser){
 		List<Review> reviewList = new ArrayList<Review>();
 
-		String query = "SELECT * FROM \"review\" where id_user = " + id_user;
+		String query = "SELECT * FROM \"review\" where idUser = " + idUser;
 		Statement statement = null;
 		try {
 			statement = connection.createStatement();
@@ -192,10 +192,10 @@ public class ReviewDAO {
 		return reviewList;
 	}
 
-	public List<Review> getReviewByIdItem(String id_item){
+	public List<Review> getReviewByIdItem(String idItem){
 		List<Review> reviewList = new ArrayList<Review>();
 
-		String query = "SELECT * FROM \"review\" where id_user = " + id_item;
+		String query = "SELECT * FROM \"review\" where idUser = " + idItem;
 		Statement statement = null;
 		try {
 			statement = connection.createStatement();
